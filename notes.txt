@@ -1,0 +1,28 @@
+
+problem - ok, we need to make a expense tracker. This will have a total your balance, and below that will sho all your income and all your expense. 
+then below that it will a history section of all the things that either got you to earn money or lose money. below that is an add new transaction, 
+which has an input bar which user can input saying what caused loss/gain of money, and below that they can enter a negative or positive number,representing
+money lost or gained. 
+
+breaking down the problem. Ok, clearly we can have multiple components: totalBalance, history section, AddNewTransaction. totalBalance and history section
+ would need to have access to all products, we can just declare it on app, but lets use context api for the sake of experience. So lets define a context 
+ folder and define the Transactions Provider in their.  we will use Use context and content, use chatgpt so see the syntax for it. everything weill need 
+ to have access to the transactions array, and be able to have delete and addTransactions function. we will call them in the specific function.
+ use uuid4 to declare the id. we will define a reducer function, in in its own file in the context folder, which will have the ADD_TRANSACTIONS And the 
+ DELETE_TRANSACTIONS, and that would be used to change the state from UserReducer. will predefine a state, copy from video for that.
+
+ for total balance we will simply loop over it and update a balance state
+ for history sections we wi ll use the useContext function, get the transactions, loop over them, and put them in a lit tag inside a ui tag.
+ Add new transaction will have form with label, linked by id, for an text input. maybe use state if needed. make another input for number. 
+
+
+lessons learnt: because of efficiency reasons, its best practices to keep react states as immutable, if you want to change it, then what you should do is 
+make a copy of it. if you want to add something to an array, making nw array with spread out array, then at end give value you want to give 
+at end of array. e.g:[...state.transactions, action.payload]
+
+if you want to use a template string for class names, you first wrap everything in a bracket. 
+
+sometimes if there is a css style isn't being applied, its because you have to refresh t he browser 
+
+sometime when it come to like  a with statement, if you use something like a reducer function it may not recognize exactly what
+some types are, and so you need to use as keyword assertion to tell it that. 
